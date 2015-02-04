@@ -17,7 +17,7 @@ isOtf(fs.readFileSync('FontAwesome.otf'));
 //=> true
 ```
 
-## thx
+## Thx
 
 - [ynakajima/ttf.js](https://github.com/ynakajima/ttf.js)
 

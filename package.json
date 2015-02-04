@@ -17,6 +17,8 @@
     "index.js"
   ],
   "keywords": [
+    "font",
+    "OpenType",
     "OTF",
     "type",
     "detect",
