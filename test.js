@@ -19,7 +19,7 @@ it('should detect OTF from Buffer', function () {
 });
 
 it('should be false when detect TTF file', function () {
-    assert(!isOtf(fs.readFileSync('fontAwesome-webfont.ttf')));
+    assert(!isOtf(fs.readFileSync('fontawesome-webfont.ttf')));
 });
 
 it('should be false when detect other type file', function () {
