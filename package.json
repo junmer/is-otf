@@ -1,6 +1,6 @@
 {
   "name": "is-otf",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Check if a String/Buffer/ArrayBuffer is OTF",
   "license": "MIT",
   "repository": "junmer/is-otf",

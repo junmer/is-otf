@@ -55,6 +55,22 @@ function getViewString(view, strLen, byteOffset) {
 }
 
 /**
+ * Retrieve a 4-character tag from the DataView.
+ *
+ * @param  {DataView} view       DataView
+ * @param  {number} strLen     string length
+ * @param  {number} byteOffset byteOffset
+ * @return {string}            string
+ */
+function getViewTag(view, offset) {
+    var tag = '', i;
+    for (i = offset; i < offset + 4; i += 1) {
+        tag += String.fromCharCode(view.getInt8(i));
+    }
+    return tag;
+};
+
+/**
  * TableDirectory Constructor
  *
  * @param {DataView} view DataView
@@ -123,12 +139,13 @@ module.exports = function (buffer) {
                 ? toArrayBuffer(new Buffer(buffer, 'binary'))
                     : toArrayBuffer(buffer);
 
-    // hex
-    if (!(ab[0] === 0x4f && ab[1] === 0x54 && ab[2] === 0x54 && ab[3] === 0x4f && ab[4] === 0x00)) {
+    var view = new DataView(ab, 0, ab.byteLength, false);
+
+    var version = getViewTag(view, 0);
+
+    if (version !== 'OTTO') {
         return false;
     }
-
-    var view = new DataView(ab, 0, ab.byteLength, false);
 
     // num tables
     var numTables = view.getUint16(4, false);
