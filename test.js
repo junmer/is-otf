@@ -8,6 +8,14 @@ var assert = require('assert');
 var fs = require('fs');
 var isOtf = require('./');
 
+it('should detect OTF from Empty', function () {
+    assert(!isOtf());
+});
+
+it('should detect OTF from Empty Buffer', function () {
+    assert(!isOtf(new Buffer('')));
+});
+
 it('should detect OTF from String', function () {
     assert(isOtf(
         fs.readFileSync('FontAwesome.otf').toString('binary')

@@ -133,6 +133,10 @@ var ttfTables = [
  */
 module.exports = function (buffer) {
 
+    if (!buffer || !buffer.length) {
+        return false;
+    }
+
     var ab = buffer instanceof ArrayBuffer
         ? buffer
             : isString(buffer)
